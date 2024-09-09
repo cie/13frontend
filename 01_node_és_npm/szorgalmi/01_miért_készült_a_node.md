@@ -1,0 +1,1 @@
+Miért készítette Ryan Dahl a Node.js-t? A közhiedelemmel ellentétben nem azért, hogy lehessen a szerveren is JavaScriptet futtatni. Nézd meg a [videót](https://www.youtube.com/watch?v=ztspvPYybIY), amiben Ryan Dahl bemutatja a Node.js-t, és fogalmazd meg, hogy mi volt a fő célja: mi volt a probléma, és milyen megoldást akart rá adni.
