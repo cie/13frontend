@@ -15,6 +15,7 @@ mikor jön a következő 80-as troli az Örs vezér tere felé.
 ## JSON kapcsolódás
 
 - keresd ki, hogy hogyan lehet a BKK futár API-ját meghívni (pszt, itt egy API kulcs, vigyázz rá: 85144c43-41fc-4a25-ac23-85626ae4c46f)
+  - teszteléshez használhatod ezt az endpointot, ami egy hasonló JSON-t ad vissza: http://host.docker.internal:8080/80.json
 - készíts egy `bkk.js` fájlt, amiben egy függvény van, ami visszaadja a következő 80-as troli érkezési idejét
 - állítsd be, hogy 1 percenként betegye az eredményt az olda törzsébe
 
