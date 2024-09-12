@@ -8,7 +8,7 @@ mikor jön a következő 80-as troli az Örs vezér tere felé.
 - hozz létre egy új mappát, lépj bele, és `npm init`-tel hozz létre egy npm csomagot
 - `npm install -D vite`-tel telepítsd a Vite-et
 - hozz létre egy `index.html` fájlt
-- `vite` paranccsal indítsd el a Vite fejlesztői szervert, és nyisd meg
+- `npx vite` paranccsal indítsd el a Vite fejlesztői szervert, és nyisd meg
 - .gitignore-ba vedd fel a `node_modules` mappát
 - kommitold az eddigieket, és egy új github repóba pushold fel
 
