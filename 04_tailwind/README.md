@@ -34,4 +34,27 @@ Mai órán a workspace-ben fogunk dolgozni (https://coder.launchpad.hu), és egy
 
    Nézd meg az animációt a [Tailwind honlapján](https://tailwindcss.com), és értsd meg, hogy mi történik, ahogy szerkeszti a css osztályokat.
 
+3. Hozz létre újra egy új mappát `tailwind-1` néven, lépj át bele a VS Code-dal, és a fenti módon telepítsd benne a Vite-et.
+
+4. Telepítsd a Tailwind-et a Vite-be: https://tailwindcss.com/docs/guides/vite
+
+5. Hozz létre egy index.html-t a következő tartalommal, és oldd meg ezeket a feladatokat!
+
+  ```html
+  <!doctype html>
+  <html>
+    <head>
+      <meta charset=utf-8>
+      <title>Tailwind basics</title>
+    </head>
+    <body>
+       <p>Siker! Állítsd ennek a bekezdésnek a szövegét `danger` színűre! Keresd ki a Tailwind dokumentációból!</p>
+       <p>Ennek a bekezdésnek adj 2px vastag kék keretet!</p>
+       <p>Ennek a bekezdésnek adj hátteret és paddinget!</p>
+    </body>
+  </html>
+  ```
+
+6. Készítsd el a Tailwind segítségével ezt a dizájnt: https://iho.hu/img/vasut/1207/120718_tarnok/kl/814/P8221191.jpg  NEM kell, hogy friss adatokkal dolgozzon!
+
    
