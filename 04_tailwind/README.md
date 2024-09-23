@@ -1,6 +1,6 @@
 # Tailwind
 
-Mai órán a workspace-ben fogunk dolgozni (https://coder.launchpad.hu).
+Mai órán a workspace-ben fogunk dolgozni (https://coder.launchpad.hu), és egyelőre nem a közös projekten, hanem a Tailwind-et fogjuk megismerni.
 
 1. Talán emlékszel Bootstrap-ben az ún. Utility osztályokra. Például a `d-flex` a display-t flex-re állítja, míg a `mr-3` osztály egy jobb oldali margót állít be. Csináljunk ebből egy ismétlést!
 
