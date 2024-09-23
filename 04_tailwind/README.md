@@ -36,7 +36,7 @@ Mai órán a workspace-ben fogunk dolgozni (https://coder.launchpad.hu), és egy
 
 3. Hozz létre újra egy új mappát `tailwind-1` néven, lépj át bele a VS Code-dal, és a fenti módon telepítsd benne a Vite-et.
 
-4. Telepítsd a Tailwind-et a Vite-be: https://tailwindcss.com/docs/guides/vite
+4. Telepítsd a Tailwind-et a Vite-be: https://tailwindcss.com/docs/guides/vite - ezen belül a 2-5 pontok.
 
 5. Hozz létre egy index.html-t a következő tartalommal, és oldd meg ezeket a feladatokat!
 
@@ -46,9 +46,10 @@ Mai órán a workspace-ben fogunk dolgozni (https://coder.launchpad.hu), és egy
     <head>
       <meta charset=utf-8>
       <title>Tailwind basics</title>
+      <link rel="stylesheet" href="./src/index.css">
     </head>
     <body>
-       <p>Siker! Állítsd ennek a bekezdésnek a szövegét `danger` színűre! Keresd ki a Tailwind dokumentációból!</p>
+       <p>Siker! Állítsd ennek a bekezdésnek a szövegét piros színűre! Keresd ki a Tailwind dokumentációból!</p>
        <p>Ennek a bekezdésnek adj 2px vastag kék keretet!</p>
        <p>Ennek a bekezdésnek adj hátteret és paddinget!</p>
     </body>
