@@ -12,6 +12,6 @@ viszont
 - lehet érteni belőle a működését
 - pontosan lehet tudni belőle, hogy mit kell lefejleszteni, és mit NEM kell lefejleszteni
 
-1. Készítsétek el ennek megfelelően a legutóbb elkezdett skicceket Excalidraw-ban a BKK menetrend ill. a helyettesítések megjelenítésére. A linkeket megtaláljátok a GitLab projekt wiki-jében.
+1. Készítsétek el ennek megfelelően a legutóbb elkezdett skicceket Excalidraw-ban a [BKK menetrend](https://link.excalidraw.com/l/2Ab1o1MM6yN/4zkaN3YYBVV) ill. a [helyettesítések](https://link.excalidraw.com/l/2Ab1o1MM6yN/2jF3oS4ymIt) megjelenítésére. A linkeket megtaláljátok a GitLab projekt wiki-jében.
 
 2. Mutassátok be a másik csapatnak, beszéljétek át a felmerült gondolatokat.
