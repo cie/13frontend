@@ -13,3 +13,5 @@ viszont
 - pontosan lehet tudni belőle, hogy mit kell lefejleszteni, és mit NEM kell lefejleszteni
 
 1. Készítsétek el ennek megfelelően a legutóbb elkezdett skicceket Excalidraw-ban a BKK menetrend ill. a helyettesítések megjelenítésére. A linkeket megtaláljátok a GitLab projekt wiki-jében.
+
+2. Mutassátok be a másik csapatnak, beszéljétek át a felmerült gondolatokat.
