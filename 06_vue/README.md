@@ -1,7 +1,28 @@
 Készítettem egy Google Scriptet a helyettesítések lekérdezésére:
 
 ```javascript
+function doGet(req) {
+  const store = PropertiesService.getUserProperties();
+  let firstRow = store.getProperty("firstRow") ?? 682;
+  let lastRow = store.getProperty("lastRow") ?? 701;
 
+  const spreadsheet = Sheets.Spreadsheets.get(
+    "1O_HndNsg7KzTmNR8rGFKmjPEeBXNXAsMzlRg4hTUyYw",
+    { includeGridData: true, ranges: `Helyettesítés!A${firstRow}:J${lastRow}` }
+  );
+  const sheet =
+    spreadsheet.sheets.find(
+      (s) => s.properties.title.toLowerCase() === "Helyettesítés"
+    ) ?? spreadsheet.sheets[0];
+  const data = sheet.data[0];
+  const response = data.rowData
+    .filter((_, i) => !data.rowMetadata[i].hiddenByUser)
+    .map((row) => row.values.map((v) => v.formattedValue));
+  console.log(JSON.stringify(response, undefined, 2));
+  return ContentService.createTextOutput(
+    JSON.stringify(response, undefined, 2)
+  );
+}
 ```
 
 1. Valamelyik korábbi Vite-es projektedben írj egy szkriptet egy .js fájlba, ami az oldal betöltődésekor lekéri `fetch` függvénnyel a https://script.google.com/macros/s/AKfycbzAwQ5zVV2spxCniFeMkSK0_6e-ADdP6vLVJ_fhAiKoegus7EMgnidxHwjV4ekM_J1K/exec endpointról a helyettesítéseket, és kilogolja. Csak akkor fut le a .js fájl, ha az index.html behívja.
