@@ -8,7 +8,7 @@ Lépj bele, és `npm install`, majd `npm run dev`.
 
 Telepítsd a Tailwind-et a projektbe a https://tailwindcss.com/docs/guides/vite#vue oldal alapján a 2. ponttól.
 
-Az App komponensből töröld ki a fölösleges dolgokat, a style.css-ből is mindent, ami nem a tailwind három sora.
+Az App komponensből töröld ki a `<style setup>`-ból a `setup`-ot és a fölösleges tartalmakat, a style.css-ből is mindent, ami nem a tailwind három sora.
 
 1. Reaktív állapot és eseménykezelés
 
