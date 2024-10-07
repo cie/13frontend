@@ -59,3 +59,14 @@ Az App komponensből töröld ki a `<style setup>`-ból a `setup`-ot és a föl�
    - piros szín
 
    Használd a `:class` direktívát, és a Tailwind `font-bold`, `italic`, `text-lg` és `text-red-500` osztályait.
+
+6. Inline style-ok állítása reaktív állapot alapján
+
+   A fenti feladatban készült minta-szövegnek lehessen állítani
+
+   - az opacity-jét egy csúszkával (`<input type="range">`)
+   - a szöveg színét egy színválasztóval (`<input type="color">`)
+   - a betűméretét egy számmezővel (`<input type="number">`)
+   - a betűtípusát egy legördülő listából (`<select>`)
+
+   Mindegyikhez használd a `v-model` direktívát, és állítsd be az inline style-t a `:style` direktívával.
