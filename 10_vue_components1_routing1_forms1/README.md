@@ -8,7 +8,7 @@ Készíts egy bejelentkező oldalt az egyik meglévő Vue alkalmazásodhoz!
 
 1. Tegyél egy linket a főoldalra, ami a bejelentkezés oldara mutat.
 
-1. Amikor a felhasználó megnyomja a submit gombot, Axios-szal küldd el POST-ban a kérést a http://coder.launchpad.hu:3333/login endpointra a következő formátumban:
+1. Amikor a felhasználó megnyomja a submit gombot, Axios-szal küldd el POST-ban a kérést a https://coder.launchpad.hu:3333/login endpointra a következő formátumban:
 
 ```json
 {
