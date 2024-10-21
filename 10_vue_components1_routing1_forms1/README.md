@@ -21,15 +21,15 @@ Helyes jelszavak:
 
 ```
  {
-    username: 'john',
-    password: 'password123',
+    username: "john",
+    password: "password123"
   }
 ```
 és
 ```
   {
-    username: 'jane',
-    password: 'pass456',
+    username: "jane",
+    password: "pass456"
   }
 ```
 
