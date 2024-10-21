@@ -17,4 +17,4 @@ Készíts egy bejelentkező oldalt az egyik meglévő Vue alkalmazásodhoz!
 }
 ```
 
-5. Ha a válasz 200-as, akkor irányítsd át a felhasználót a főoldalra. Ha nem, akkor jeleníts meg egy hibaüzenetet.
+5. Ha a válasz 200-as, akkor irányítsd át a felhasználót a főoldalra. Ha nem (401-es), akkor jeleníts meg egy hibaüzenetet.
