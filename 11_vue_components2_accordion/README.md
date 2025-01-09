@@ -62,6 +62,13 @@ Hogyan tudjuk ezt szépen? Normál JavaScriptben az adatok és műveletek egybec
 Telepítsd a `pinia` csomagot, és a https://pinia.vuejs.org/core-concepts/#Setup-Stores alapján készíts egy store-t a Details komponens `<script setup>`-jában, valahogy így:
 
 ```
+const useStore = defineStore('details', () => {
+  ...
+})
+const store = useStore()
+```
+
+Csinálj a store-ban egy boolean állapotot (`ref()`-fel) és egy toggle függvényt, ami ezt ki/be kapcsolja, és használd ezeket a komponensben.
 
 
 
