@@ -70,7 +70,20 @@ const store = useStore()
 
 Csinálj a store-ban egy boolean állapotot (`ref()`-fel) és egy toggle függvényt, ami ezt ki/be kapcsolja, és használd ezeket a komponensben.
 
+# 4. Közös store
 
+Térjünk vissza az Accordion komponensre.
+
+Készíts egy store-t az Accordion `<script setup>`-jában, ami
+
+- van egy reaktív állapota, ami tárolja, hogy hány pane-je van
+- van egy reaktív állapota, ami tárolja, hogy hányadik pane van nyitva
+- van egy `addPane()` művelete, amit egy új pane felvételekor kell meghívni. Növeli a pane-ek számát, és visszaadja az új panel sorszámát.
+- van egy `open(i)` művelete, ami az i-edik panelt kinyitja, azaz beállítja a nyitott panel sorszámát jelölő állapotot.
+
+Majd még mindig az Accordion `<script setup>`-jában "küldd le" az AccordionPane-eknek a store-t a vue `provide` függvényével.
+
+Az AccordionPane setup-jában "fogadd" ezt a vue `inject` függvényével, és ugyanitt hívd is meg rajta az `addPane()`t. Mentsd le az `addPane` által visszakapott sorszámot, és a címre klikkeléskor ezt add át a store `open(i)` action-jének.
 
 
 
