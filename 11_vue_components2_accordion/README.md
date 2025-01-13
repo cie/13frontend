@@ -59,6 +59,8 @@ lehet különválasztani. Válasszuk külön egy külön fájlba a működését
 
 Hogyan tudjuk ezt szépen? Normál JavaScriptben az adatok és műveletek egybecsomagolására jó a class. Vue-ban a reaktív állapotok, számított értékek és műveletek egybecsomagolására jó a *store*, amit a Pinia csomag ad.
 
+A store tipikusan arra való, hogy egy központi helyen tároljunk állapotot. Például azt, hogy milyen felhasználó van bejelentkezve, mi van a kosárban, milyen nyelv van beállítva, dark vagy light mód van stb. Szóval tipikusan globális adatok tárolására használjuk. DE most egyelőre csak egy komponens belső állapotát fogjuk tárolni benne.
+
 Telepítsd a `pinia` csomagot, és a https://pinia.vuejs.org/core-concepts/#Setup-Stores alapján készíts egy store-t a Details komponens `<script setup>`-jában, valahogy így:
 
 ```
