@@ -47,45 +47,19 @@ Készíts egy Accordion komponenst, ami kinyitható paneleket fog össze.
 </Accordion>
 ```
 
+# 4. Közös állapot
+
 A következő cél az lesz, hogy egyszerre egy komponens lehessen nyitva. Emiatt valahogy a külső Accordion komponensnek is kell legyen egy "közös" állapota, ami az AccordionPane-ekre is hatással van.
-Viszont előbb csináljunk valamit, amitől ez könnyebb lesz...
 
-# 3. Store
+Készíts az Accordion komponensben egy reaktív állapotot (pl. `activePane`), ami megmondja, hogy melyik pane van kiválasztva.
+És készíts egy függvényt, ami ezt beállítja (pl. `setActivePane(x)`) és ami visszaadja, hogy egy adott pane van-e kiválasztva (pl. `isActive(pane)`).
 
-Térjünk vissza egy kicsit a Details feladathoz, mert az egyszerűbb, és azt alakítsuk át.
-
-Ahogy eddig csináltuk, kicsit keveredik a komponens *kinézete* és *működése*. Ilyen egyszerűbb komponenseknél nem gond, de bonyolultabb esetben hasznos
-lehet különválasztani. Válasszuk külön egy külön fájlba a működését: azaz a reaktív állapotot (`ref()`-et) és azt a függvényt, ami ezt ki/be kapcsolja (legyen `toggle`).
-
-Hogyan tudjuk ezt szépen? Normál JavaScriptben az adatok és műveletek egybecsomagolására jó a class. Vue-ban a reaktív állapotok, számított értékek és műveletek egybecsomagolására jó a *store*, amit a Pinia csomag ad.
-
-A store tipikusan arra való, hogy egy központi helyen tároljunk állapotot. Például azt, hogy milyen felhasználó van bejelentkezve, mi van a kosárban, milyen nyelv van beállítva, dark vagy light mód van stb. Szóval tipikusan globális adatok tárolására használjuk. DE most egyelőre csak egy komponens belső állapotát fogjuk tárolni benne.
-
-Telepítsd a `pinia` csomagot, és a https://pinia.vuejs.org/core-concepts/#Setup-Stores alapján készíts egy store-t a Details komponens `<script setup>`-jában, valahogy így:
+Az Accordion `<script setup>`-jában "küldd le" az AccordionPane-eknek a vue `provide` függvényével a két függvényt egy objektumba becsomagolva, pl.
 
 ```
-const useStore = defineStore('details', () => {
-  ...
-})
-const store = useStore()
+provide('accordionContext', { setActivePane, isActive })
 ```
 
-Csinálj a store-ban egy boolean állapotot (`ref()`-fel) és egy toggle függvényt, ami ezt ki/be kapcsolja, és használd ezeket a komponensben.
+Az AccordionPane setup-jában "fogadd" ezt az objektumot a vue `inject` függvényével, és használd fel őket.
 
-# 4. Közös store
-
-Térjünk vissza az Accordion komponensre.
-
-Készíts egy store-t az Accordion `<script setup>`-jában, ami
-
-- van egy reaktív állapota, ami tárolja, hogy hány pane-je van
-- van egy reaktív állapota, ami tárolja, hogy hányadik pane van nyitva
-- van egy `addPane()` művelete, amit egy új pane felvételekor kell meghívni. Növeli a pane-ek számát, és visszaadja az új panel sorszámát.
-- van egy `open(i)` művelete, ami az i-edik panelt kinyitja, azaz beállítja a nyitott panel sorszámát jelölő állapotot.
-
-Majd még mindig az Accordion `<script setup>`-jában "küldd le" az AccordionPane-eknek a store-t a vue `provide` függvényével.
-
-Az AccordionPane setup-jában "fogadd" ezt a vue `inject` függvényével, és ugyanitt hívd is meg rajta az `addPane()`t. Mentsd le az `addPane` által visszakapott sorszámot, és a címre klikkeléskor ezt add át a store `open(i)` action-jének.
-
-
-
+</div>
