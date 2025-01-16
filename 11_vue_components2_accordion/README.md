@@ -62,4 +62,12 @@ provide('accordionContext', { setActivePane, isActive })
 
 Az AccordionPane setup-jában "fogadd" ezt az objektumot a vue `inject` függvényével, és használd fel őket.
 
+Kérdés: mi legyen az az azonosító, amivel az AccordionPane azonosítja magát? Jó ötlet lenne a `this`, ami a komponenspéldányt jelöli, de sajnos a `ref()` kicsit trükközik a kapott objektumokkal, így nem lesz `===` szerint azonos amit beleteszünk és amit kiolvasunk belőle. Úgyhogy mi legyen? Lehetne pl. egy számot generálni, minden AccordionPane példányban eggyel növelve. De egyszerűbb, ha ilyenkor létrehozunk egy ún. Symbol-t - ami pont arra való, hogy egy új egyedi érték, ami `===` szerinti vizsgálattal csak magával lesz egyenlő, semmi mással (főleg más, később vagy korábban létrehozott Symbol-okkal nem).
+
+```
+const me = Symbol();
+```
+
+Ezt a szimbólumot használhatjuk a setActivePane-nek megadva és az isActive-nak megadva.
+
 </div>
