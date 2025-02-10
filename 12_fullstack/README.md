@@ -1,3 +1,5 @@
+# Fullstack autentikáció
+
 https://laravel.com/docs/11.x/sanctum#spa-authentication alapján
 
 - frontend címét .env-ben SANCTUM_STATEFUL_DOMAINS-ben
