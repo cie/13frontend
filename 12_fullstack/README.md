@@ -53,8 +53,13 @@ function submit() {
        withCredentials: true,
        withXSRFToken: true,
 
+- A CSRF kódot el kell kérni minden más kérés előtt. A frontend http.mjs-ben:
        
-      http.get('http://backend.vm1.test/sanctum/csrf-cookie')
+      await http.get('sanctum/csrf-cookie')
+
+- Azonban a fenti sor "api/sanctum/csrf-cookie"-t kéri le, pedig "sanctum/csrf-cookie" kell. Az egyszerűség kedvéért oldjuk meg, hogy valóban "api/sanctum/csrf-cookie" címen legyen elérhető a sanctum:  config/sanctum.php:
+
+      'prefix' => 'api/sanctum'
 
 - php artisan make:controller AuthController
 - routes/api.php 
@@ -64,5 +69,6 @@ function submit() {
 - AuthController.php - TODO majd  https://laravel.com/docs/11.x/authentication#authenticating-users alapján csináljuk a logint
    
     public function signup(Request $request) {
+        // először csak próbaképp:
         return response()->json(['ok' => true]);
     }
