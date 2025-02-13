@@ -75,7 +75,7 @@ function submit() {
           Features::emailVerification(),
       ],
 
-- Ugyanitt állítsuk be a 'prefix'-et '/api'-ra, hogy bekerüljön a 'api' alá (ezzel rendezettebb lesz, és a sanctum CORS miatt elérhető lesz a frontend js-nek)
+- Ugyanitt állítsuk be a 'prefix'-et '/api'-ra, hogy ne '/login' és '/register', hanem '/api/login' és '/api/register' legyen (ezzel rendezettebb lesz, és /api alatt a sanctum beállítja a CORS-ot, így elérhető lesz a frontend js-nek)
 
 <div>
 <!--
