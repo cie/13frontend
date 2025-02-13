@@ -65,7 +65,7 @@ function submit() {
     -  composer require laravel/fortify
     - php artisan fortify:install
     - php artisan migrate
-- A fortify config fájlban kapcsoljuk ki a views-t
+- A fortify config fájlban kapcsoljuk ki a views-t, hiszen most nem Laravelben van a frontend. A features-ben sem kell two-factor stb. csak ezek:
 
       'views' => false,
   
