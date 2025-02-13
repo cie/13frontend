@@ -100,13 +100,13 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LoginResponse::class, new class implements LoginResponse {
             public function toResponse($request)
             {
-                return response()->json(['ok' => true]);
+                return response()->json($request->user());
             }
         });
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
             public function toResponse($request)
             {
-                return response()->json(['ok' => true]);
+                return response()->json($request->user());
             }
         });
         $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
@@ -117,6 +117,14 @@ class FortifyServiceProvider extends ServiceProvider
         });
     }
 ```
+
+- Ellenőrizd a Network fülön tesztelted a register-t és a login-t, hogy visszakapod az usert a json-ben
+- Ebben a user objektumban viszont szenzitív autentikációs adatok is vannak, amiket nem szeretnénk leküldeni. Ezért definiálni kéne, hogy miket szeretnénk leküldeni... egy resource-ban:
+
+      php artsian make:resource UserResource
+
+- Állítsd be a resource-t úgy, hogy csak a fontos adatokat küldje le, és módosítsd a fenti metódusokat úgy, hogy a Response-t használják.
+  
 
 <div>
 <!--
