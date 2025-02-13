@@ -119,12 +119,8 @@ class FortifyServiceProvider extends ServiceProvider
 ```
 
 - Ellenőrizd a Network fülön tesztelted a register-t és a login-t, hogy visszakapod az usert a json-ben
-- Ebben a user objektumban viszont szenzitív autentikációs adatok is vannak, amiket nem szeretnénk leküldeni. Ezért definiálni kéne, hogy miket szeretnénk leküldeni... egy resource-ban:
 
-      php artsian make:resource UserResource
 
-- Állítsd be a resource-t úgy, hogy csak a fontos adatokat küldje le, és módosítsd a fenti metódusokat úgy, hogy a Response-t használják.
-  
 
 <div>
 <!--
