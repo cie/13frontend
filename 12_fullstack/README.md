@@ -61,7 +61,7 @@ function submit() {
 
       'prefix' => 'api/sanctum'
 
-- Ezután a fortify-t fogjuk használni az autentikációhoz.
+- Ezután a [Fortify](https://laravel.com/docs/11.x/fortify#installation)-t fogjuk használni az autentikációhoz.
     -  composer require laravel/fortify
     - php artisan fortify:install
     - php artisan migrate
@@ -75,4 +75,10 @@ function submit() {
           Features::emailVerification(),
       ],
 
- 
+- Ugyanitt állítsuk be a 'prefix'-et '/api'-ra, hogy bekerüljön a 'api' alá (ezzel rendezettebb lesz, és a sanctum CORS miatt elérhető lesz a frontend js-nek)
+
+<div>
+<!--
+-  ->middleware('auth:sanctum');
+-->
+</div>
