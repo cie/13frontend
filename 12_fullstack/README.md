@@ -119,6 +119,18 @@ class FortifyServiceProvider extends ServiceProvider
 ```
 
 - Ellenőrizd a Network fülön tesztelted a register-t és a login-t, hogy visszakapod az usert a json-ben
+- Ellenőrizd, hogy le tudod-e kérni a user-t `await http('/user')`
+
+---
+
+Most, hogy működik a backenden a felhasználókezelés, központosítsuk a frontenden is.
+
+- hozz létre egy userStore Pinia Store-t
+- legyen benne
+  - user ref, ami tárolja az épp bejelentkezett user-t
+  - loadUser ami az oldal betöltődésekor megpróbálja betölteni a /user-t, és ha nem sikerül, beállítja null-ra.
+  - signup(vagy register) és login függvény, ami a megfelelő művelet után beállítja a user-t
+  - isLoggedIn függvény vagy computed
 
 
 
