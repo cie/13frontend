@@ -76,6 +76,7 @@ function submit() {
       ],
 
 - Ugyanitt állítsuk be a 'prefix'-et '/api'-ra, hogy ne '/login' és '/register', hanem '/api/login' és '/api/register' legyen (ezzel rendezettebb lesz, és /api alatt a sanctum beállítja a CORS-ot, így elérhető lesz a frontend js-nek)
+- mivel a Fortify /signup helyett /register-nek hívja a regisztráció API elérési útját, ezt javítsuk a signup.vue-ban
 
 <div>
 <!--
