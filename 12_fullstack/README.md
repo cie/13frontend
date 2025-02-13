@@ -61,14 +61,18 @@ function submit() {
 
       'prefix' => 'api/sanctum'
 
-- php artisan make:controller AuthController
-- routes/api.php 
+- Ezután a fortify-t fogjuk használni az autentikációhoz.
+    -  composer require laravel/fortify
+    - php artisan fortify:install
+    - php artisan migrate
+- A fortify config fájlban kapcsoljuk ki a views-t
 
-    Route::post('/signup', [AuthController::class, 'signup']);
+      'views' => false,
+  
+      'features' => [
+          Features::registration(),
+          Features::resetPasswords(),
+          Features::emailVerification(),
+      ],
 
-- AuthController.php - TODO majd  https://laravel.com/docs/11.x/authentication#authenticating-users alapján csináljuk a logint
-   
-    public function signup(Request $request) {
-        // először csak próbaképp:
-        return response()->json(['ok' => true]);
-    }
+ 
