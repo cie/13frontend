@@ -81,6 +81,43 @@ function submit() {
 - A password_confirmation-t hiányolni fogja a Fortify. Ha szeretnénk, csináljunk egy ennek megfelelő mezőt, VAGY ha nem, küldjük el password_confirmation néven is a passwordöt
 - A Fortify hiányolja a "name"-et regisztrációnál. Csináljunk egy ilyen mezőt.
 
+- Ha most teszteljük a formot, elvileg már sikeresen regisztrál, egy üres sztringet ad vissza válasznál. Ezt majd szeretnénk testreszabni, hogy a user-t adja vissza.
+- A loginnál rosszabb a helyzet: loginel DE utána redirektel a főoldalra (mint egy normális backend MVC alkalmazás). Ez nekünk nem jó, hiszen ez egy single-page application, nincs is főoldala a backendnek! Úgyhogy módosítsuk a Fortify működését, hogy mit válaszoljon a login és logout kérésekre - JSON-t. Ezt a FortifyServiceProvider-ben tehetjük meg.
+
+```
+use Laravel\Fortify\Contracts\LoginResponse;
+use Laravel\Fortify\Contracts\LogoutResponse;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravel\Fortify\Fortify;
+
+class FortifyServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        $this->app->instance(LoginResponse::class, new class implements LoginResponse {
+            public function toResponse($request)
+            {
+                return response()->json(['ok' => true]);
+            }
+        });
+        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
+            public function toResponse($request)
+            {
+                return response()->json(['ok' => true]);
+            }
+        });
+        $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
+            public function toResponse($request)
+            {
+                return response()->json(['ok' => true]);
+            }
+        });
+    }
+```
+
 <div>
 <!--
 -  ->middleware('auth:sanctum');
