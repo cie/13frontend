@@ -60,6 +60,10 @@ function submit() {
 - Azonban a fenti sor "api/sanctum/csrf-cookie"-t kéri le, pedig "sanctum/csrf-cookie" kell. Az egyszerűség kedvéért oldjuk meg, hogy valóban "api/sanctum/csrf-cookie" címen legyen elérhető a sanctum:  config/sanctum.php:
 
       'prefix' => 'api/sanctum'
+- Viszont ahhoz, hogy a frontend JS kódja is láthassa a backend-től kapott cookie-t, a backend-nek úgy kell ezt beállítania, hogy ne a backend.vm1.test-re vonatkozzon, hanem bármely .vm1.test alatti domainen. Ezért a .env fájlban ezt is állítsuk be:
+
+      SESSION_DOMAIN=.vm1.test
+
 
 - Ezután a [Fortify](https://laravel.com/docs/11.x/fortify#installation)-t fogjuk használni az autentikációhoz.
     -  composer require laravel/fortify
