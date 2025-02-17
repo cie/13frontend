@@ -124,6 +124,7 @@ class FortifyServiceProvider extends ServiceProvider
 
 - Ellenőrizd a Network fülön tesztelted a register-t és a login-t, hogy visszakapod az usert a json-ben
 - Ellenőrizd, hogy le tudod-e kérni a user-t `await http('/user')`
+- Teszteld kijelentkezett állapotban is!
 
 ---
 
@@ -137,7 +138,8 @@ Most, hogy működik a backenden a felhasználókezelés, központosítsuk a fro
   - loadUser ami az oldal betöltődésekor megpróbálja betölteni a /user-t
   - hívd is meg a loadUser-t itt.
 
-Költöztesd át ide a signup és a login logikát a megfelelő komponensekből.
+1. Teszteld a userStore loadUser függvényét a developer tools konzolból. Teszteld bejelentkezett és nem bejelentkezett állapotban is.
+2. Költöztesd át ide a signup és a login logikát a megfelelő komponensekből.
 
 ---
 
