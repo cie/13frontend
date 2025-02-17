@@ -39,7 +39,10 @@ function submit() {
 
 - pages/login.vue hasonlóan
 
-- frontend címét .env-ben SANCTUM_STATEFUL_DOMAINS-ben
+- frontend címét állítsuk be az .env-ben SANCTUM_STATEFUL_DOMAINS-ben; valamint ahhoz, hogy a frontend JS kódja is láthassa a backend-től kapott cookie-t, a backend-nek úgy kell ezt beállítania, hogy ne a backend.vm1.test-re vonatkozzon, hanem bármely .vm1.test alatti domainen. Ezért ezt is állítsuk be:
+    SANCTUM_STATEFUL_DOMAINS=frontend.vm1.test
+    SESSION_DOMAIN=.vm1.test
+
 - bootstrap/app.php
 
       ->withMiddleware(function (Middleware $middleware) {
@@ -60,9 +63,6 @@ function submit() {
 - Azonban a fenti sor "api/sanctum/csrf-cookie"-t kéri le, pedig "sanctum/csrf-cookie" kell. Az egyszerűség kedvéért oldjuk meg, hogy valóban "api/sanctum/csrf-cookie" címen legyen elérhető a sanctum:  config/sanctum.php:
 
       'prefix' => 'api/sanctum'
-- Viszont ahhoz, hogy a frontend JS kódja is láthassa a backend-től kapott cookie-t, a backend-nek úgy kell ezt beállítania, hogy ne a backend.vm1.test-re vonatkozzon, hanem bármely .vm1.test alatti domainen. Ezért a .env fájlban ezt is állítsuk be:
-
-      SESSION_DOMAIN=.vm1.test
 
 
 - Ezután a [Fortify](https://laravel.com/docs/11.x/fortify#installation)-t fogjuk használni az autentikációhoz.
