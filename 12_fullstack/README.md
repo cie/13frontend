@@ -41,8 +41,8 @@ function submit() {
 
 - frontend címét állítsuk be az .env-ben SANCTUM_STATEFUL_DOMAINS-ben; valamint ahhoz, hogy a frontend JS kódja is láthassa a backend-től kapott cookie-t, a backend-nek úgy kell ezt beállítania, hogy ne a backend.vm1.test-re vonatkozzon, hanem bármely .vm1.test alatti domainen. Ezért ezt is állítsuk be:
 
-    SANCTUM_STATEFUL_DOMAINS=frontend.vm1.test
-    SESSION_DOMAIN=.vm1.test
+      SANCTUM_STATEFUL_DOMAINS=frontend.vm1.test
+      SESSION_DOMAIN=.vm1.test
 
 - bootstrap/app.php
 
