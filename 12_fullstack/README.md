@@ -127,16 +127,32 @@ class FortifyServiceProvider extends ServiceProvider
 
 ---
 
+## II. UserStore
+
 Most, hogy működik a backenden a felhasználókezelés, központosítsuk a frontenden is.
 
 - hozz létre egy userStore Pinia Store-t
 - legyen benne
   - user ref, ami tárolja az épp bejelentkezett user-t
-  - loadUser ami az oldal betöltődésekor megpróbálja betölteni a /user-t, és ha nem sikerül, beállítja null-ra.
-  - signup(vagy register) és login függvény, ami a megfelelő művelet után beállítja a user-t
-  - isLoggedIn függvény vagy computed
+  - loadUser ami az oldal betöltődésekor megpróbálja betölteni a /user-t
+  - hívd is meg a loadUser-t itt.
 
+Költöztesd át ide a signup és a login logikát a megfelelő komponensekből.
 
+---
+
+## Navigation guard
+
+Oldjuk meg, hogy a felhasználó ne tudjon rámenni a /login és a /register oldalakra ha be van jelentkezve, hanem ezek irányítsanak át a / oldalra. Ehhez használjuk a Vue Router egyik funkcióját egy ún. navigation guard-ot a router/index.js-ben:
+
+```
+router.beforeEach(async (to, from) => {
+  // console.log('navigating to', to);
+});
+```
+Ebben a guard-ban
+- vizsgáld meg, hogy a /login vagy /signup oldalon vagyunk-e
+- 
 
 <div>
 <!--
