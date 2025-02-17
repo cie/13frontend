@@ -87,13 +87,12 @@ function submit() {
 - A Fortify hiányolja a "name"-et regisztrációnál. Csináljunk egy ilyen mezőt.
 
 - Ha most teszteljük a formot, elvileg már sikeresen regisztrál, egy üres sztringet ad vissza válasznál. Ezt majd szeretnénk testreszabni, hogy a user-t adja vissza.
-- A loginnál rosszabb a helyzet: loginel DE utána redirektel a főoldalra (mint egy normális backend MVC alkalmazás). Ez nekünk nem jó, hiszen ez egy single-page application, nincs is főoldala a backendnek! Úgyhogy módosítsuk a Fortify működését, hogy mit válaszoljon a login és logout kérésekre - JSON-t. Ezt a FortifyServiceProvider-ben tehetjük meg.
+- A loginnál rosszabb a helyzet: loginel DE utána redirektel a főoldalra (mint egy normális backend MVC alkalmazás). Ez nekünk nem jó, hiszen ez egy single-page application, nincs is főoldala a backendnek! Úgyhogy módosítsuk a Fortify működését, hogy mit válaszoljon a login és logout kérésekre - JSON-t. Ezt a FortifyServiceProvider-ben tehetjük meg. A register() metódusba adjuk hozzá ezt a három hívást, és use-oljuk a szükséges interface-eket.
 
 ```
 use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\RegisterResponse;
-use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
 {
