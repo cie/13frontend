@@ -153,10 +153,10 @@ router.beforeEach(async (to, from) => {
 });
 ```
 Ebben a guard-ban
-- vizsgáld meg, hogy a /login vagy /signup oldalon vagyunk-e úgy, hogy be vagyunk jelentkezve
-- ha igen, akkor redirektáld a főlapra
-- vizsgáld meg, hogy a főlapon vagyunk-e úgy, hogy ki vagyunk jelentkezve
-- ha igen, akkor redirektáld a /login vagy /signup oldalra
+- vizsgáld meg, hogy a /login vagy /signup oldalon vagyunk-e úgy, hogy be vagyunk jelentkezve. ha igen, akkor redirektáld a főlapra
+  - na de honnan tudjuk, hogy be vagyunk-e jelentkezve? Meg kell várni, amíg a loadUser lefut. Honnan tudhatjuk, hogy mikor fut le?
+    - módosítsd a userStore-t, hogy publikálja egy `userLoaded` mezőben azt a promise-t, amit a `loadUser()` visszaad. Így a `userStore.userLoaded`-et await-elve (vagy then-elve) tudhatod, hogy már kiderült, hogy be vagyunk-e jelentkezve.
+- vizsgáld meg, hogy a főlapon vagyunk-e úgy, hogy ki vagyunk jelentkezve. ha igen, akkor redirektáld a /login vagy /signup oldalra
 
 <div>
 <!--
