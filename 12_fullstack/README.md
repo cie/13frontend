@@ -153,8 +153,10 @@ router.beforeEach(async (to, from) => {
 });
 ```
 Ebben a guard-ban
-- vizsgáld meg, hogy a /login vagy /signup oldalon vagyunk-e
-- 
+- vizsgáld meg, hogy a /login vagy /signup oldalon vagyunk-e úgy, hogy be vagyunk jelentkezve
+- ha igen, akkor redirektáld a főlapra
+- vizsgáld meg, hogy a főlapon vagyunk-e úgy, hogy ki vagyunk jelentkezve
+- ha igen, akkor redirektáld a /login vagy /signup oldalra
 
 <div>
 <!--
