@@ -143,7 +143,7 @@ Most, hogy működik a backenden a felhasználókezelés, központosítsuk a fro
 
 ---
 
-## Navigation guard
+## III. Navigation guard
 
 Oldjuk meg, hogy a felhasználó ne tudjon rámenni a /login és a /register oldalakra ha be van jelentkezve, hanem ezek irányítsanak át a / oldalra. Ehhez használjuk a Vue Router egyik funkcióját egy ún. navigation guard-ot a router/index.js-ben:
 
@@ -160,6 +160,25 @@ Ebben a guard-ban
 
 <div>
 <!--
+## IV. Autorizáció
+
+Nem csupán azt kell tudnunk biztosra, hogy ki a felhasználó – ez az autentikáció –, hanem azt is meg kell mondanunk, hogy ez felhasználó mit tehet és mit nem: ez az autorizáció.
+
+Tehát: a felhasználó csak azokat a todo-kat szerkeszthesse, amik a sajátjai.
+
+Ehhez először is fel kell venni egy `user_id` sztring mezőt a Todos táblába:
+```
+            $table->string('user_id');
+```
+Ezután a seederbe vagy factorybe is fel kell venni, hogy egy meglévő user-hez kösse. Mivel a DatabaseSeeder alapból létrehoz nekünk egy felhasználót, ezt előkereshetjük a seederünkben vagy factorynkban:
+
+            'user_id' => User::all()->first()->id,
+
+
+
+Elvileg az API routes fájlban a `/user` API route-hoz van már egy ilyen middleware deklaráció:
 -  ->middleware('auth:sanctum');
+
+Egy ugyanilyet kell rákötni a /todos apira ahhoz, hogy csak autentikált felhasználó hívhassa egyáltalán a végpontot, és hogy bekerüljön a `$request`-be a `user`.
 -->
 </div>
